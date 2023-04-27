@@ -93,7 +93,7 @@ router.post('/update', ensureToken, async (req,res)=> {
     })
 })
 
-router.delete('/delete',async (req,res)=> {
+router.delete('/delete', ensureToken,async (req,res)=> {
     jwt.verify(req.token, 'my_secret_key', async function(err,data){
         if (err){
             res.sendStatus(403)
@@ -120,7 +120,7 @@ router.delete('/delete',async (req,res)=> {
     })
 })
 
-router.post('/read',async (req,res)=> {
+router.post('/read', ensureToken, async (req,res)=> {
     jwt.verify(req.token, 'my_secret_key', async function(err,data){
         if (err){
             res.sendStatus(403)
